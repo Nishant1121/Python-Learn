@@ -66,10 +66,14 @@ print(n, f, back_to_str, type(back_to_str))
 # list, dict, set        -> mutable (can change in place)
 
 
-# ---------------- PRACTICE ----------------
-# TODO 1: take a float 9.8, convert it to int, and print it.
-#         Notice: does it round, or does it truncate?
-# TODO 2: try bool(0), bool(1), bool(""), bool("hello"), bool([])
-#         and predict each result before running
-# TODO 3: what happens if you do int("3.5")? Why does it fail
-#         when float("3.5") works fine?
+print("Assignment 1")
+num =int(9.8)
+print (type(num))
+print (num)
+
+
+x = int("3.5")  # This will raise a ValueError because "3.5" is not a valid integer literal.   
+x = float("3.5")  # This works fine and converts the string "3.5" to the float 3.5.
+
+
+

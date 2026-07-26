@@ -34,3 +34,12 @@ print(a | b)    # union -> all unique elements from both
 print(a & b)    # intersection -> common elements
 print(a - b)    # difference -> in a but not in b
 print(a ^ b)    # symmetric difference -> in a or b, NOT both
+
+# 6. Practical use: removing duplicates from a list
+raw = [1, 2, 2, 3, 3, 3, 4]
+unique = list(set(raw))   # NOTE: loses original order
+print(unique)
+
+# 7. frozenset -> an immutable version of a set (rarely needed early on)
+fs = frozenset([1, 2, 3])
+# fs.add(4)   -> AttributeError, frozensets can't be modified

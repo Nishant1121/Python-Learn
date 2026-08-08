@@ -39,9 +39,9 @@ def play_round(low=1, high=100, max_attempts=7):
             print(f"Correct! You got it in {attempts} attempt(s).")
             return True
         elif guess < target:
-            print("Higher!")
+            print("Think higher!")
         else:
-            print("Lower!")
+            print("Think lower!")
 
         remaining = max_attempts - attempts
         if remaining > 0:

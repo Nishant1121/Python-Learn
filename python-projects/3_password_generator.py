@@ -37,12 +37,18 @@ def get_yes_no(prompt):
         print("Please enter y or n.")
 
 
+MAX_LENGTH = 64   # sensible upper bound -> no accidental 1000+ char output
+
+
 def get_length():
     while True:
         try:
-            length = int(input("Password length (min 4): "))
+            length = int(input(f"Password length (min 4, max {MAX_LENGTH}): "))
             if length < 4:
                 print("Length must be at least 4 for a decent password.")
+                continue
+            if length > MAX_LENGTH:
+                print(f"Length must be {MAX_LENGTH} or less.")
                 continue
             return length
         except ValueError:
@@ -72,4 +78,3 @@ if __name__ == "__main__":
     main()
 
 
-# in this code there is some output bug... want to correct it. The output is not coming properly. I want to correct it.

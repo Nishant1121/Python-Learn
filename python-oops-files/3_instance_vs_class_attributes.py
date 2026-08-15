@@ -61,5 +61,17 @@ t3.add_member("Nishant")
 print(t4.members)   # [] -> correctly empty, independent lists
 
 
+# 4. A counter using a class attribute -> practical use case
+class Employee:
+    total_employees = 0   # tracks count across ALL instances
 
+    def __init__(self, name):
+        self.name = name
+        Employee.total_employees += 1   # increment shared counter
+
+
+e1 = Employee("A")
+e2 = Employee("B")
+e3 = Employee("C")
+print(Employee.total_employees)   # 3
 

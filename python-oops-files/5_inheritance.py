@@ -7,6 +7,20 @@ Static methods    -> don't need self OR cls, just live inside the class
                       for organizational purposes
 """
 
+#basic inheritance example
+class Animal:
+   def __init__(self, name):
+       self.name = name
+   def info(self):
+       print(f"Animal name: {self.name}")
+class Dog(Animal): # Dog inherits from Animal
+   def sound(self):
+       print(f"{self.name} barks")
+# Usage
+d = Dog("Buddy")
+d.info() # Inherited method
+d.sound() # Child-specific method
+
 
 class Employee:
     total_employees = 0
@@ -67,5 +81,4 @@ s1 = Student("Nishant", 22)                       # normal way
 s2 = Student.from_birth_year("Aman", 2003)         # alternate constructor
 print(s1)
 print(s2)
-
 

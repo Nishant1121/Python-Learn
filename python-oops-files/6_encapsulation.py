@@ -65,3 +65,27 @@ acc3.withdraw(2000)               # blocked -> exceeds balance
 print(acc3.get_balance())
 print(acc3._Account3__balance)    # the "mangled" name -> works, but
                                     # you're clearly bypassing intent
+
+# 4. @property -> the Pythonic way to control access with clean syntax
+# (looks like an attribute, behaves like a method)
+class Account4:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.__balance = balance
+
+    @property
+    def balance(self):              # getter -> acc4.balance (no parens!)
+        return self.__balance
+
+    @balance.setter
+    def balance(self, value):        # setter -> acc4.balance = value
+        if value < 0:
+            raise ValueError("Balance cannot be negative")
+        self.__balance = value
+
+
+acc4 = Account4("Nishant", 1000)
+print(acc4.balance)     # calls the getter, looks like a plain attribute
+acc4.balance = 2000      # calls the setter, validates before assigning
+print(acc4.balance)
+# acc4.balance = -50     # raises ValueError, setter blocks it
